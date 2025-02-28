@@ -14,7 +14,10 @@ public class Hero : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
     }
-
+    void Awake()
+    {
+        singleton = this;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -44,6 +47,7 @@ public class Hero : MonoBehaviour
             die.SetActive(true);
             Destroy(gameObject);
             Time.timeScale = 0;
+            print("мертв");
         }
     }
 
